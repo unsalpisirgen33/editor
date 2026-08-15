@@ -1,0 +1,8 @@
+{
+  "name": "Example Plugin",
+  "id": "example-plugin",
+  "version": "1.0.0",
+  "description": "Örnek eklenti",
+  "main": "index.js",
+  "author": "Sweet IDE"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Calculator",
+  "id": "calculator",
+  "version": "1.0.0",
+  "description": "Basit hesap makinesi eklentisi",
+  "main": "index.js",
+  "author": "Sweet IDE"
+}

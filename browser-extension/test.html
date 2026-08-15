@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IDE Bridge Test</title>
+</head>
+<body>
+  <h1>IDE Console Bridge Test</h1>
+  <button onclick="testError()">Test Error</button>
+  <button onclick="testWarning()">Test Warning</button>
+  <button onclick="testConnection()">Test Connection</button>
+  
+  <div id="status"></div>
+  
+  <script>
+    function testError() {
+      console.error('TEST ERROR MESSAGE');
+    }
+    
+    function testWarning() {
+      console.warn('TEST WARNING MESSAGE');
+    }
+    
+    function testConnection() {
+      const ws = new WebSocket('ws://localhost:9999');
+      
+      ws.onopen = () => {
+        document.getElementById('status').innerHTML = '✅ Connected to IDE';
+        ws.send(JSON.stringify({
+          type: 'error',
+          message: 'Direct WebSocket Test',
+          source: 'test.html',
+          timestamp: new Date().toLocaleTimeString()
+        }));
+      };
+      
+      ws.onerror = () => {
+        document.getElementById('status').innerHTML = '❌ Cannot connect to IDE';
+      };
+    }
+  </script>
+</body>
+</html>
